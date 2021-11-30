@@ -1,7 +1,8 @@
 #include <iostream>
-#include "file_1.h"
+#include "chapter2/chapter2.h"
+#include "chapter3/chapter3.h"
 
-int main(int, char **)
+int main()
 {
     std::cout << "Hello, world!\n";
 
@@ -13,4 +14,5 @@ int main(int, char **)
     std::cout << a << std::endl;
 
     fun_print();
+    print_chapter3();
 }

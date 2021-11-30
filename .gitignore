@@ -11,3 +11,5 @@ CTestTestfile.cmake
 _deps
 *.exe
 /build
+cmake-build-debug/
+.idea/
