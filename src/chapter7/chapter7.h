@@ -160,4 +160,45 @@ class NoDefault {
 
 void invoke_chapter7();
 
+struct Sales_data2 {
+  std::string bookNo;
+  unsigned units_sold;
+  double revenue;
+};
+
+class Debug {
+ public:
+  constexpr Debug(bool b = true) : hw(b), io(b), other(b) {}
+  constexpr Debug(bool h, bool i, bool o) : hw(h), io(i), other(o) {}
+  constexpr bool any() {
+	return hw || io || other;
+  }
+
+  void set_io(bool b) { io = b; }
+  void set_hw(bool b) { hw = b; }
+  void set_other(bool b) { hw = b; }
+
+ private:
+  bool hw;
+  bool io;
+  bool other;
+};
+
+class Account {
+ public:
+  void calculate() { amount += amount * interestRate; }
+  static double rate() { return interestRate; }
+  static void rate(double);
+ private:
+  std::string owner;
+  double amount;
+
+  static double interestRate;
+  static double initRate();
+
+  //period是常量表达式
+  static constexpr int period = 30;
+  double daily_tbl[period];
+};
+
 #endif

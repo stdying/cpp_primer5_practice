@@ -9,7 +9,14 @@ void invoke_chapter7() {
 
   Sales_data item;
   std::string null_book = "9-999-9999-9";
-  item.combine(null_book);
+  item.combine(Sales_data(null_book));
+  //使用static_cast可以使用explicit的构造函数
+  item.combine(static_cast<Sales_data>(null_book));
+  std::cout << "after combine " << std::endl;
+
+  //聚合类
+  //去除类内初始值
+  Sales_data2 item2 = {"798-2232", 25, 15.99};
 }
 
 Sales_data add(const Sales_data &lhs, const Sales_data &rhs) {
@@ -93,5 +100,15 @@ Window_mgr::ScreenIndex Window_mgr::addScreen(const Screen &s) {
 
 ConstRef::ConstRef(int ii) : i(ii), ci(ii), ri(i) {}
 
+//定义并初始化一个静态成员，可以访问类的私有成员
+double Account::interestRate = initRate();
 
+//一个不带初始值的静态成员的定义
+constexpr int Account::period;
 
+void Account::rate(double newRate) {
+  interestRate = newRate;
+}
+double Account::initRate() {
+  return 0;
+}
