@@ -52,6 +52,7 @@ add_subdirectory(src/chapter3)
 add_subdirectory(src/chapter6)
 add_subdirectory(src/chapter7)
 add_subdirectory(src/chapter8)
+add_subdirectory(src/chapter13)
 
 # 查找当前目录下的所有源文件并存入DIR_SRCS变量 
 aux_source_directory(${CMAKE_CURRENT_LIST_DIR}/src DIR_SRCS)
@@ -59,7 +60,14 @@ aux_source_directory(${CMAKE_CURRENT_LIST_DIR}/src DIR_SRCS)
 # 创建可执行程序
 add_executable(cpp_primer5_practice ${DIR_SRCS})
 
-target_link_libraries(cpp_primer5_practice chapter2 chapter3 chapter6 chapter7 chapter8)
+target_link_libraries(cpp_primer5_practice
+        chapter2
+        chapter3
+        chapter6
+        chapter7
+        chapter8
+        chapter13
+        )
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
