@@ -15,18 +15,20 @@ class Sales_data {
 
  public:
 //  Sales_data() = default;
+  Sales_data(const Sales_data&);
+
   Sales_data(std::string s, unsigned cnt, double price) :
-	  bookNo(s), units_sold(cnt), revenue(cnt * price) {
-	std::cout << "Sales_data(std::string s, unsigned cnt, double price)" << std::endl;
+      bookNo(s), units_sold(cnt), revenue(cnt * price) {
+    std::cout << "Sales_data(std::string s, unsigned cnt, double price)" << std::endl;
   }
 
   Sales_data() : Sales_data("", 0, 0) {
-	std::cout << "Sales_data()" << std::endl;
+    std::cout << "Sales_data()" << std::endl;
   }
 
   //抑制构造函数定义的隐士转换
   explicit Sales_data(std::string s) : Sales_data(s, 0, 0) {
-	std::cout << "Sales_data(std::string s)" << std::endl;
+    std::cout << "Sales_data(std::string s)" << std::endl;
   }
 
   virtual ~Sales_data();
@@ -36,11 +38,11 @@ class Sales_data {
 //  Sales_data(std::string s = "") : bookNo(s) {}
 
   explicit Sales_data(std::istream &is) : Sales_data() {
-	read(is, *this);
+    read(is, *this);
   }
 
   std::string isbn() const {
-	return bookNo;
+    return bookNo;
   }
 
   Sales_data &combine(const Sales_data &);
@@ -96,7 +98,7 @@ class Screen {
 
   //隐士内联
   char get() const {
-	return contents[cursor];
+    return contents[cursor];
   }
 
   //显示内敛
@@ -112,13 +114,13 @@ class Screen {
   Screen &set(pos, pos, char);
 
   Screen &display(std::ostream &os) {
-	do_display(os);
-	return *this;
+    do_display(os);
+    return *this;
   }
 
   const Screen &display(std::ostream &os) const {
-	do_display(os);
-	return *this;
+    do_display(os);
+    return *this;
   }
 
  private:
@@ -128,7 +130,7 @@ class Screen {
   mutable size_t access_ctr;
 
   void do_display(std::ostream &os) const {
-	os << contents << "\n";
+    os << contents << "\n";
   }
 };
 
@@ -171,7 +173,7 @@ class Debug {
   constexpr Debug(bool b = true) : hw(b), io(b), other(b) {}
   constexpr Debug(bool h, bool i, bool o) : hw(h), io(i), other(o) {}
   constexpr bool any() {
-	return hw || io || other;
+    return hw || io || other;
   }
 
   void set_io(bool b) { io = b; }

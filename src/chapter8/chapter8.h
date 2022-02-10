@@ -8,6 +8,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <vector>
 
 struct PersonInfo{
   std::string name;
