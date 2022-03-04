@@ -4,12 +4,15 @@
 
 #include "chapter13.h"
 HasPtr &HasPtr::operator=(const HasPtr &rhs) {
-  //拷贝底层string
-  auto newP = new std::string(*rhs.ps);
-  //释放旧内存
-  delete ps;
-  ps = newP;
+  //递增右侧运算对象的引用计数
+  ++*rhs.use;
+  //递减本对象引用计数
+  if (--*use == 0) {
+	delete ps;
+	delete use;
+  }
+  ps = rhs.ps;
   i = rhs.i;
-  //返回本对象
+  use = rhs.use;
   return *this;
 }

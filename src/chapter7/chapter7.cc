@@ -28,7 +28,7 @@ Sales_data add(const Sales_data &lhs, const Sales_data &rhs) {
 std::ostream &print(std::ostream &os, const Sales_data &item) {
   os << "Print something to wherever the caller wants to";
   os << item.isbn() << " " << item.units_sold << " "
-     << item.revenue << " " << item.avg_price();
+	 << item.revenue << " " << item.avg_price();
   return os;
 }
 
@@ -42,9 +42,9 @@ std::istream &read(std::istream &is, Sales_data &item) {
 
 double Sales_data::avg_price() const {
   if (units_sold) {
-    return units_sold / units_sold;
+	return units_sold / units_sold;
   } else {
-    return 0;
+	return 0;
   }
 };
 
@@ -62,7 +62,9 @@ Sales_data::~Sales_data() {
 }
 
 Sales_data::Sales_data(const Sales_data &orig) :
-    bookNo(orig.bookNo), units_sold(orig.units_sold), revenue(orig.revenue) {}
+	bookNo(orig.bookNo), units_sold(orig.units_sold), revenue(orig.revenue) {
+  std::cout << "cpoy Sales_data::Sales_data" << std::endl;
+}
 
 inline char Screen::get(pos r, pos c) const {
   pos row = r * width;

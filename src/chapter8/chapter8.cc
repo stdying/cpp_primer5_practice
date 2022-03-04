@@ -9,6 +9,7 @@ void test() {
   std::ifstream input("input.txt");
   std::ofstream output("output.txt");
   Sales_data total;
+  Sales_data total2 = total;
   if (read(input, total)) {
 	Sales_data trans;
 	while (read(input, trans)) {
@@ -38,19 +39,19 @@ void openMode(){
 
 void invoke_chapter8() {
   std::cout << "===> invoke_chapter8" << std::endl;
-  int ival;
-  std::cin >> ival;
-  std::cout << std::unitbuf;
-  std::cout << std::unitbuf;
-
-  std::cout << "hi!" << std::endl;
-  std::cout << "hi!" << std::flush;
-  std::cout << "hi!" << std::ends;
-
-  std::cin.tie(&std::cout);
-  std::ostream *old_tie = std::cin.tie(nullptr);
-  std::cin.tie(&std::cerr);
-  std::cin.tie(old_tie);
+//  int ival;
+//  std::cin >> ival;
+//  std::cout << std::unitbuf;
+//  std::cout << std::unitbuf;
+//
+//  std::cout << "hi!" << std::endl;
+//  std::cout << "hi!" << std::flush;
+//  std::cout << "hi!" << std::ends;
+//
+//  std::cin.tie(&std::cout);
+//  std::ostream *old_tie = std::cin.tie(nullptr);
+//  std::cin.tie(&std::cerr);
+//  std::cin.tie(old_tie);
 
   test();
   openMode();
